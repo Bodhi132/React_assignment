@@ -76,11 +76,8 @@ const SignUp = () => {
             // Check if the request was successful
             if (res.status === 200) {
                 return new Promise((resolve) => {
-                    setTimeout(() => {
-                        
-                        const token = response.data.token;
-                        const decoded = jwtDecode(token);
-                        setUser(decoded.user);
+                    setTimeout(() => { 
+                        window.location.href = '/auth/google';
                         resolve()
                     }, 3000);
                 });

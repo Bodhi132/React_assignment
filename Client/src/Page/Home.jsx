@@ -3,8 +3,32 @@ import { useNavigate } from 'react-router-dom'
 import logo from '../assets/Home_page_assets/logo.png'
 import NavBar from '../components/NavBar'
 import Header from '../components/Header'
+import { jwtDecode } from 'jwt-decode'
 
 const Home = (props) => {
+
+  const [user, setUser] = React.useState(null);
+
+  useEffect(() => {
+    const handleAuthCallback = async () => {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (token) {
+          const decoded = jwtDecode(token);
+          setUser(decoded.user);
+        } else {
+          throw new Error('Token not found');
+        }
+      } catch (error) {
+        console.error('Error handling auth callback', error);
+      }
+    };
+
+    handleAuthCallback();
+  }, []);
+  
 
   return (
     <>
