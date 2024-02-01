@@ -9,24 +9,12 @@ passport.use(new GoogleStrategy({
     clientSecret: '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',
     callbackURL: "/auth/google/callback"
   },
-  async function(accessToken, refreshToken, profile, cb) {
-    // Find or create user in your database here
-    const existingUser = await User.findOne({ googleId: profile.id });
-
-    if (existingUser) {
-      return cb(null, existingUser);
-    }
-
-    const newUser = new User({
-      googleId: profile.id,
-      username: profile.displayName,
-      // add any other details you want from profile
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
     });
-
-    await newUser.save();
-
-    return cb(null, newUser);
   }
+
 ));
 
 // passport.use(new AppleStrategy({
