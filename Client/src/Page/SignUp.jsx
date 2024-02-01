@@ -63,11 +63,34 @@ const SignUp = () => {
         }
     };
     const handleGoogleLogin = async () => {
-        const response = await axios.get('/auth/google');
-        const token = response.data.token;
-        const decoded = jwt_decode(token);
-        setUser(decoded.user);
+        
+        // console.log('hey');
+        // const response = await axios.get('/auth/google');
+        // const token = response.data.token;
+        // const decoded = jwt_decode(token);
+        // setUser(decoded.user);
+
+        try {
+            let res = await axios.get('/auth/login', { email, password });
+            console.log('hey');
+            // Check if the request was successful
+            if (res.status === 200) {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        
+                        const token = response.data.token;
+                        const decoded = jwtDecode(token);
+                        setUser(decoded.user);
+                    }, 3000);
+                });
+            } else {
+                console.log('Error:', res.status);
+            }
+        } catch (error) {
+            console.error('An error occurred:', error);
+        }
       };
+      
     
     //   const handleAppleLogin = async () => {
     //     const response = await axios.get('/auth/apple');
