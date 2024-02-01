@@ -70,18 +70,7 @@ const SignUp = () => {
         // const decoded = jwt_decode(token);
         // setUser(decoded.user);
 
-        try {
-            console.log('hey');
-            // Check if the request was successful
-                return new Promise((resolve) => {
-                    setTimeout(() => { 
-                        window.location.href = '/auth/google';
-                        resolve()
-                    }, 3000);
-                });
-        } catch (error) {
-            console.error('An error occurred:', error);
-        }
+        window.location.href = '/auth/google';
       };
       
     
