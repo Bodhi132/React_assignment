@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express();
 
 app.use(express.json());
-app.use(cors({ credentials: true, origin: ['http://localhost:5173','https://react-assignment-frontend.vercel.app','https://react-assignment-frontend-acykept6y-bodhi132.vercel.app']}));
+app.use(cors({ credentials: true, origin: ['http://localhost:5173','https://react-assignment-frontend.vercel.app','https://react-assignment-frontend-acykept6y-bodhi132.vercel.app','http://localhost:3000']}));
 
 const uri = "mongodb+srv://bodhi:W7Jy92luuZQgGvNN@cluster0.xanjw9x.mongodb.net/?retryWrites=true&w=majority"
 
