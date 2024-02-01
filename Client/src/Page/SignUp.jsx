@@ -124,7 +124,7 @@ const SignUp = () => {
                         <h2 className=' font-lato sm:text-[16px] text-[12px]'>Sign in to your account</h2>
                     </div>
                     <div className='flex justify-between sm:mb-4'>
-                        <SignInButtons imgUrl={googleImage} type={'Google'} onClick={onClick}/>
+                        <SignInButtons imgUrl={googleImage} type={'Google'} onClick={handleGoogleLogin}/>
                         {/* <SignInButtons imgUrl={appleImage} type={'Apple'} /> */}
                     </div>
                     <div className='w-full flex flex-col items-center'>
