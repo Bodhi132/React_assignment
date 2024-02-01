@@ -73,16 +73,12 @@ const SignUp = () => {
         try {
             console.log('hey');
             // Check if the request was successful
-            if (res.status === 200) {
                 return new Promise((resolve) => {
                     setTimeout(() => { 
                         window.location.href = '/auth/google';
                         resolve()
                     }, 3000);
                 });
-            } else {
-                console.log('Error:', res.status);
-            }
         } catch (error) {
             console.error('An error occurred:', error);
         }
