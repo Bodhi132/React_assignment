@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SignInButtons = ({ imgUrl, type }) => {
+const SignInButtons = ({ imgUrl, type,onClick: handleClick }) => {
     const [buttonState, setButtonState] = React.useState("loaded");
     const onClick = async () => {
         setButtonState("loading");
