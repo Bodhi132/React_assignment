@@ -9,14 +9,13 @@ const router = express.Router();
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
-router.get('/google',
-  passport.authenticate('google', { scope: ['profile'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
-router.get('/google/callback', 
+app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
-  function(req, res) {
-    const token = jwt.sign({ user: req.user }, secret);
-    res.redirect('/home?token=' + token);
+  (req, res) => {
+    // Successful authentication, redirect home.
+    res.redirect('/home');
   });
 
 // router.get('/apple',
