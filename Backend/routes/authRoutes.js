@@ -1,29 +1,35 @@
 const express = require('express');
 const passport = require('passport');
 const authController = require('../controllers/authController');
-const passportSetup = require('../middleware/passport');
-const secret = 'asdfe45we45w345wegw345werjktjwertkj';
-
-const app = express()
 
 const router = express.Router();
 
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
+router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
-// app.get('/auth/google/callback', 
-//   passport.authenticate('google', { 
-//     failureRedirect: '/' ,
-//     successRedirect: '/home'
-// }));
-app.get('/auth/google/callback', 
-passport.authenticate('google', { failureRedirect: '/signup' }),
-function(req,res){
-    res.redirect('/home')
-}
-);
+router.get('/google/callback', 
+  passport.authenticate('google', { 
+    failureRedirect: 'https://react-assignment-frontend-d4yvgzwwi-bodhi132.vercel.app' ,
+    successRedirect: 'https://react-assignment-frontend-d4yvgzwwi-bodhi132.vercel.app/home'
+}));
+
+// app.get("/login/sucess",async(req,res)=>{
+
+//     if(req.user){
+//         res.status(200).json({message:"user Login",user:req.user})
+//     }else{
+//         res.status(400).json({message:"Not Authorized"})
+//     }
+// })
+
+// app.get("/logout",(req,res,next)=>{
+//     req.logout(function(err){
+//         if(err){return next(err)}
+//         res.redirect("http://localhost:5173/home");
+//     })
+// })
 
 // router.get('/apple',
 //   passport.authenticate('apple'));

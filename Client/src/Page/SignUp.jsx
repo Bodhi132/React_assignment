@@ -21,7 +21,7 @@ const SignUp = () => {
 
     const handleRegister = async () => {
         try {
-            let res = await axios.post('http://localhost:3000/auth/register', { email, password });
+            let res = await axios.post('https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app/auth/register', { email, password });
             // Check if the request was successful
             if (res.status === 200) {
                 return new Promise((resolve) => {
@@ -42,7 +42,7 @@ const SignUp = () => {
 
     const handleLogin = async () => {
         try {
-            let res = await axios.post('http://localhost:3000/auth/login', { email, password });
+            let res = await axios.post('https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app/auth/login', { email, password });
             // Check if the request was successful
             if (res.status === 200) {
                 return new Promise((resolve) => {
@@ -53,6 +53,7 @@ const SignUp = () => {
                         setEmail('');
                         setPassword('');
                         navigate('/home')
+                        resolve()
                     }, 3000);
                 });
             } else {
@@ -64,22 +65,9 @@ const SignUp = () => {
     };
     const handleGoogleLogin = async () => {
         
-        // console.log('hey');
-        // const response = await axios.get('/auth/google');
-        // const token = response.data.token;
-        // const decoded = jwt_decode(token);
-        // setUser(decoded.user);
-
-        window.location.href = '/auth/google';
+        window.open("https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app/auth/google/callback","_self")
       };
       
-    
-    //   const handleAppleLogin = async () => {
-    //     const response = await axios.get('/auth/apple');
-    //     const token = response.data.token;
-    //     const decoded = jwt_decode(token);
-    //     setUser(decoded.user);
-    //   };
 
     return (
         <div className=' h-screen w-screen bg-[#F8FAFF] flex flex-col sm:flex-row'>
