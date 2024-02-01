@@ -62,6 +62,19 @@ const SignUp = () => {
             console.error('An error occurred:', error);
         }
     };
+    const handleGoogleLogin = async () => {
+        const response = await axios.get('/auth/google');
+        const token = response.data.token;
+        const decoded = jwt_decode(token);
+        setUser(decoded.user);
+      };
+    
+    //   const handleAppleLogin = async () => {
+    //     const response = await axios.get('/auth/apple');
+    //     const token = response.data.token;
+    //     const decoded = jwt_decode(token);
+    //     setUser(decoded.user);
+    //   };
 
     return (
         <div className=' h-screen w-screen bg-[#F8FAFF] flex flex-col sm:flex-row'>
@@ -87,7 +100,7 @@ const SignUp = () => {
                         <h2 className=' font-lato sm:text-[16px] text-[12px]'>Sign in to your account</h2>
                     </div>
                     <div className='flex justify-between sm:mb-4'>
-                        <SignInButtons imgUrl={googleImage} type={'Google'} />
+                        <SignInButtons imgUrl={googleImage} type={'Google'} onClick={handleGoogleLogin}/>
                         <SignInButtons imgUrl={appleImage} type={'Apple'} />
                     </div>
                     <div className='w-full flex flex-col items-center'>
