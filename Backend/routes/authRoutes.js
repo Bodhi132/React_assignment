@@ -19,9 +19,9 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }))
 //     successRedirect: '/home'
 // }));
 app.get('/auth/google/callback', 
-passport.authenticate('google', { failureRedirect: '/' }),
+passport.authenticate('google', { failureRedirect: '/signup' }),
 function(req,res){
-    res.redirect('/')
+    res.redirect('/home')
 }
 );
 

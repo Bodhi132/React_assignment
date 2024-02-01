@@ -5,8 +5,8 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 // const AppleStrategy = require('passport-apple').Strategy;
 
 passport.use(new GoogleStrategy({
-    clientID: '799450234572-dc4m8rkk5gkbf00viqds8orb5ncp52h2.apps.googleusercontent.com',
-    clientSecret: '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',
+    clientID: '799450234572-uqmu9v25n98mgaij0draoltbpk542t35.apps.googleusercontent.com',
+    clientSecret: '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',
     callbackURL: "/auth/google/callback"
   },
   async function(accessToken, refreshToken, profile, cb) {
