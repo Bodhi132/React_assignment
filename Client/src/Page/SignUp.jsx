@@ -71,7 +71,7 @@ const SignUp = () => {
         // setUser(decoded.user);
 
         try {
-            let res = await axios.get('/auth/login');
+            let res = await axios.get('http://localhost:3000/auth/login');
             console.log('hey');
             // Check if the request was successful
             if (res.status === 200) {
