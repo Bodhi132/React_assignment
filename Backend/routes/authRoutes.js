@@ -11,13 +11,19 @@ const router = express.Router();
 router.post('/register', authController.register);
 router.post('/login', authController.login);
 
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
 
+// app.get('/auth/google/callback', 
+//   passport.authenticate('google', { 
+//     failureRedirect: '/' ,
+//     successRedirect: '/home'
+// }));
 app.get('/auth/google/callback', 
-  passport.authenticate('google', { 
-    failureRedirect: '/' ,
-    successRedirect: '/home'
-}));
+passport.authenticate('google', { failureRedirect: '/' }),
+function(req,res){
+    res.redirect('/')
+}
+);
 
 // router.get('/apple',
 //   passport.authenticate('apple'));
