@@ -81,6 +81,7 @@ const SignUp = () => {
                         const token = response.data.token;
                         const decoded = jwtDecode(token);
                         setUser(decoded.user);
+                        resolve()
                     }, 3000);
                 });
             } else {
@@ -124,7 +125,7 @@ const SignUp = () => {
                     </div>
                     <div className='flex justify-between sm:mb-4'>
                         <SignInButtons imgUrl={googleImage} type={'Google'} onClick={handleGoogleLogin}/>
-                        <SignInButtons imgUrl={appleImage} type={'Apple'} />
+                        {/* <SignInButtons imgUrl={appleImage} type={'Apple'} /> */}
                     </div>
                     <div className='w-full flex flex-col items-center'>
                         <div className='w-full h-[347px] bg-[#ffffff] rounded-[20px] flex flex-col justify-center'>
