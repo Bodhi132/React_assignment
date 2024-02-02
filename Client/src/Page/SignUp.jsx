@@ -84,7 +84,6 @@ const SignUp = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className='w-0 h-0 border-b-[100vh] border-l-[10rem] border-l-transparent border-[#F8FAFF] max-sm:hidden'></div> */}
             </div>
             <div className='sm:w-1/2 bg-[#F8FAFF] flex flex-col sm:mt-24 mt-[0.75rem]'>
                 <div className='sm:w-[422.64px] w-[328px] h-[390.8px] space-y-4 sm:ml-[3rem] ml-[1rem]'>
@@ -94,7 +93,6 @@ const SignUp = () => {
                     </div>
                     <div className='flex justify-between sm:mb-4'>
                         <SignInButtons imgUrl={googleImage} type={'Google'} onClick={handleGoogleLogin}/>
-                        {/* <SignInButtons imgUrl={appleImage} type={'Apple'} /> */}
                     </div>
                     <div className='w-full flex flex-col items-center'>
                         <div className='w-full h-[347px] bg-[#ffffff] rounded-[20px] flex flex-col justify-center'>
@@ -109,8 +107,6 @@ const SignUp = () => {
                                         <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} className=' bg-[#EAEAEA] rounded-[10px] h-[43px]' />
                                     </div>
                                     <p>Forgot password?</p>
-                                    {/* {login?(<button className='h-[43px] bg-[#605BFF] text-white font-montserrat font-bold text-[16px] rounded-[10px]' onClick={handleLogin}>Sign In</button>):
-                                    (<button className='h-[43px] bg-[#605BFF] text-white font-montserrat font-bold text-[16px] rounded-[10px]' onClick={handleRegister}>Sign Up</button>)} */}
                                     {
                                         <Button onClick={login?handleLogin:handleRegister}>{login ? 'Sign In' : 'Sign Up'}</Button>
                                     }
