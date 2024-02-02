@@ -11,8 +11,8 @@ router.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
 router.get('/google/callback', 
   passport.authenticate('google', { 
-    failureRedirect: 'https://react-assignment-frontend-d4yvgzwwi-bodhi132.vercel.app' ,
-    successRedirect: 'https://react-assignment-frontend-d4yvgzwwi-bodhi132.vercel.app/home'
+    failureRedirect: 'https://react-assignment-frontend.vercel.app' ,
+    successRedirect: 'https://react-assignment-frontend.vercel.app/home'
 }));
 
 // app.get("/login/sucess",async(req,res)=>{
