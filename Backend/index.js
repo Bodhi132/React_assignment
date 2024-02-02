@@ -1,3 +1,4 @@
+
 const express = require('express');
 const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes');
@@ -74,7 +75,5 @@ mongoose.connect(uri);
 // Routes
 app.use('/auth', authRoutes);
 
-app.listen(3000, () => {
-  console.log('App listening on port 4000');
-})
+module.exports = app;
 
