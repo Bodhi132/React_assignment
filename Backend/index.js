@@ -109,7 +109,7 @@ const clientsecret = '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'
 //   store: MongoStore.create({ mongoUrl: uri })
 // }))
 
-app.use(cookieSession({
+app.use(session({
   name: 'session',
   keys: ['2349&$#adfhaqdef238huefu'],
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
