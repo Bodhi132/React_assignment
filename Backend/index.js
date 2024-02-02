@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'https://react-assignment-frontend-acykept6y-bodhi132.vercel.app', 'http://localhost:3000'],
+  origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'https://react-assignment-frontend-acykept6y-bodhi132.vercel.app', 'http://localhost:3000','https://react-assignment-backend-q3rqngkqh-bodhi132.vercel.app/'],
   methods: "GET,POST,PUT,DELETE"
 }));
 
