@@ -1,9 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 import logo from '../assets/Home_page_assets/logo.png'
 import NavBar from '../components/NavBar'
 import Header from '../components/Header'
-import { jwtDecode } from 'jwt-decode'
 
 const Home = (props) => {
 
