@@ -65,7 +65,7 @@ const SignUp = () => {
     };
     const handleGoogleLogin = async () => {
         
-        window.open("https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app/auth/google/callback","_self")
+        window.open("https://react-assignment-red.vercel.app/auth/google/callback","_self")
       };
       
 
