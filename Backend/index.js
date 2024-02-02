@@ -3,13 +3,16 @@ const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes');
 const cors = require('cors')
 const session = require('express-session');
+// const session = require('cookie-session');
 const passport = require('passport');
 const OAuth2Strategy = require("passport-google-oauth20").Strategy
 const userdb = require("./models/user")
+const MongoStore = require('connect-mongo');
 
 const app = express();
 
 app.use(express.json());
+app.set('trust proxy', 1);
 app.use(cors({
   credentials: true,
   origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'https://react-assignment-frontend-acykept6y-bodhi132.vercel.app', 'http://localhost:3000','https://react-assignment-backend-q3rqngkqh-bodhi132.vercel.app/'],
@@ -25,7 +28,8 @@ const clientsecret = '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'
 app.use(session({
   secret: "2349&$#adfhaqdef238huefu",
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: MongoStore.create({ mongoUrl: uri })
 }))
 
 app.use(passport.initialize())
