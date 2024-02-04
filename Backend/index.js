@@ -74,4 +74,6 @@ mongoose.connect(uri);
 // Routes
 app.use('/auth', authRoutes);
 
-module.exports = app;
+app.listen(3000, () => {
+  console.log('App listening on port 4000');
+})
