@@ -44,7 +44,7 @@ const handleRegister = async () => {
     }
     try {
         console.log('hey3');
-        let res = await axios.post('https://react-assignment-red.vercel.app/auth/register', { email, password }, { withCredentials: true });
+        let res = await axios.post('https://localhost:3000/auth/register', { email, password }, { withCredentials: true });
         // Check if the request was successful
         if (res.status === 200) {
             return new Promise((resolve) => {
@@ -79,7 +79,7 @@ const handleLogin = async () => {
     }
 
     try {
-        let res = await axios.post('https://react-assignment-red.vercel.app/auth/login', { email, password }, { withCredentials: true });
+        let res = await axios.post('https://localhost:3000/auth/register/auth/login', { email, password }, { withCredentials: true });
         console.log('hey1');
         // Check if the request was successful
         if (res.status === 200) {
@@ -103,7 +103,7 @@ const handleLogin = async () => {
 };
 
     const handleGoogleLogin = async () => {
-        window.open("https://react-assignment-red.vercel.app/auth/google/callback", "_self")
+        window.open("https://localhost:3000/auth/google/callback", "_self")
     };
 
     return (
