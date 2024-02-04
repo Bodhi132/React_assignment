@@ -47,7 +47,7 @@ const handleRegister = async () => {
         if (res.status === 200) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    document.cookie = 'authMethod=jwt';
+                    document.cookie = 'authMethod=jwt; Secure; SameSite=None; Path=/; Domain=https://react-assignment-frontend.vercel.app; Max-Age=31536000';
                     setPassword('');
                     setEmail('');
                     navigate('/home')
@@ -83,7 +83,7 @@ const handleLogin = async () => {
         if (res.status === 200) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    document.cookie = 'authMethod=jwt';
+                    document.cookie = 'authMethod=jwt; Secure; SameSite=None; Path=/; Domain=https://react-assignment-frontend.vercel.app; Max-Age=31536000';
                     const token = response.data.token;
                     const decoded = jwtDecode(token);
                     setUser(decoded.user);
@@ -102,7 +102,7 @@ const handleLogin = async () => {
 };
 
     const handleGoogleLogin = async () => {
-        document.cookie = 'authMethod=google';
+        document.cookie = 'authMethod=jwt; Secure; SameSite=None; Path=/; Domain=https://react-assignment-frontend.vercel.app; Max-Age=31536000';
         window.open("https://react-assignment-red.vercel.app/auth/google/callback", "_self")
     };
 
