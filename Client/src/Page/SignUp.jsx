@@ -79,7 +79,7 @@ const handleLogin = async () => {
     }
 
     try {
-        let res = await axios.post('http://localhost:3000/auth/register/auth/login', { email, password }, { withCredentials: true });
+        let res = await axios.post('http://localhost:3000/auth/login', { email, password }, { withCredentials: true });
         console.log('hey1');
         // Check if the request was successful
         if (res.status === 200) {
