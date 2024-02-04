@@ -28,7 +28,13 @@ const allowCors = fn => async (req, res, next) => {
 }
 
 // Use the CORS middleware
-app.use((req, res, next) => allowCors((req, res) => next())(req, res));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://react-assignment-frontend-m7nzpu31e-bodhi132.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 
 app.disable('etag');
