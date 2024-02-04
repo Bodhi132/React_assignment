@@ -14,7 +14,7 @@ app.use(express.json());
 app.set('trust proxy', 1);
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'https://react-assignment-frontend-acykept6y-bodhi132.vercel.app', 'http://localhost:3000','https://react-assignment-backend-q3rqngkqh-bodhi132.vercel.app/'],
+  origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'https://react-assignment-frontend-acykept6y-bodhi132.vercel.app', 'http://localhost:3000','https://react-assignment-backend-q3rqngkqh-bodhi132.vercel.app','https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app'],
   methods: "GET,POST,PUT,DELETE"
 }));
 
