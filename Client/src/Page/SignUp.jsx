@@ -49,7 +49,7 @@ const handleRegister = async () => {
                 setTimeout(() => {
                     setPassword('');
                     setEmail('');
-                    navigate('/home')
+                    navigate('home')
                     resolve();
                 }, 3000);
             });
@@ -87,7 +87,7 @@ const handleLogin = async () => {
                     setUser(decoded.user);
                     setEmail('');
                     setPassword('');
-                    navigate('/home')
+                    navigate('home')
                     resolve()
                 }, 3000);
             });
