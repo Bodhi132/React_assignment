@@ -3,6 +3,7 @@ import bell from '../assets/Home_page_assets/bell.png'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useLocation } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const Header = () => {
 
@@ -14,9 +15,9 @@ const Header = () => {
 
   const handleLogout = async () => {
     try {
-
-      const authMethod = localStorage.getItem('authMethod'); // Replace with your actual key
-
+      // Get the authentication method from the cookie
+      const authMethod = Cookies.get('authMethod');
+  
       // Make a request to the server to log out
       if (authMethod === 'jwt') {
         await axios.post('/auth/logout/jwt');
@@ -26,15 +27,17 @@ const Header = () => {
         console.error('Invalid auth method');
         return;
       }
-      localStorage.removeItem('token');
-      localStorage.removeItem('authMethod');
-
+  
+      // Remove the JWT token and auth method from the cookies
+      Cookies.remove('token');
+      Cookies.remove('authMethod');
+  
       setUser(null);
     } catch (error) {
       console.error('Error logging out', error);
     }
   };
-
+  
   return (
     <div className='w-full flex h-20 justify-between items-center mb-10'>
       <div className='ml-9 max-sm:hidden'>{lastSegment === 'upload' ? 'Upload CSV' : ''}</div>

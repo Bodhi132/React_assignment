@@ -47,7 +47,7 @@ const handleRegister = async () => {
         if (res.status === 200) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    localStorage.setItem('authMethod', 'jwt');
+                    document.cookie = 'authMethod=jwt';
                     setPassword('');
                     setEmail('');
                     navigate('/home')
@@ -83,7 +83,7 @@ const handleLogin = async () => {
         if (res.status === 200) {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    localStorage.setItem('authMethod', 'jwt');
+                    document.cookie = 'authMethod=jwt';
                     const token = response.data.token;
                     const decoded = jwtDecode(token);
                     setUser(decoded.user);
@@ -102,7 +102,7 @@ const handleLogin = async () => {
 };
 
     const handleGoogleLogin = async () => {
-        localStorage.setItem('authMethod', 'google');
+        document.cookie = 'authMethod=google';
         window.open("https://react-assignment-red.vercel.app/auth/google/callback", "_self")
     };
 
