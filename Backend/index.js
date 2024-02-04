@@ -11,33 +11,12 @@ const MongoStore = require('connect-mongo');
 const app = express();
 
 app.use(express.json());
-app.set('trust proxy', 1);
-const allowCors = fn => async (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  )
-  if (req.method === 'OPTIONS') {
-    res.status(200).end()
-    return
-  }
-  return await fn(req, res, next)
-}
-
-// Use the CORS middleware
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://react-assignment-frontend-m7nzpu31e-bodhi132.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  next();
-});
-
-
-app.disable('etag');
+app.use(cors({
+  origin: 'https://react-assignment-frontend.vercel.app', // or '*' to allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 
 const uri = "mongodb+srv://bodhi:W7Jy92luuZQgGvNN@cluster0.xanjw9x.mongodb.net/?retryWrites=true&w=majority"
 const clientid = '612556527469-pic78u7se0rbmg3h32ms00dg5bmcuimn.apps.googleusercontent.com'
