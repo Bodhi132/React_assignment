@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 
 exports.register = async (req, res) => {
-  const { email, password } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
