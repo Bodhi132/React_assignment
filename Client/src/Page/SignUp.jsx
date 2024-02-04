@@ -100,7 +100,7 @@ const handleLogin = async () => {
 };
 
     const handleGoogleLogin = async () => {
-        window.open("https://react-assignment-backend-a0pr39zgc-bodhi132.vercel.app/auth/google/callback", "_self")
+        window.open("https://https://react-assignment-red.vercel.app/auth/google/callback", "_self")
     };
 
     return (
