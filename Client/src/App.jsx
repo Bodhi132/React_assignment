@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import axios from 'axios'
 import SignUp from "./Page/SignUp"
 import Home from './Page/Home'
 import Dashboard from "./Page/Subpages/Dashboard";
@@ -8,6 +9,7 @@ import Notification from "./Page/Subpages/Notification";
 import Upload from "./Page/Subpages/Upload";
 import Setting from "./Page/Subpages/Setting";
 import Schedule from "./Page/Subpages/Schedule";
+
 
 axios.defaults.baseURL = 'https://react-asssingment-backend.onrender.com/';
 
