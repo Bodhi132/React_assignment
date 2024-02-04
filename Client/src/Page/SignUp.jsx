@@ -44,7 +44,7 @@ const handleRegister = async () => {
     }
     try {
         console.log('hey3');
-        let res = await axios.post('http://localhost:3000/auth/register', { email, password }, { withCredentials: true });
+        let res = await axios.post('http://localhost:3000/auth/register', { email, password });
         // Check if the request was successful
         if (res.status === 200) {
             return new Promise((resolve) => {
@@ -79,7 +79,7 @@ const handleLogin = async () => {
     }
 
     try {
-        let res = await axios.post('http://localhost:3000/auth/login', { email, password }, { withCredentials: true });
+        let res = await axios.post('http://localhost:3000/auth/login', { email, password });
         console.log('hey1');
         // Check if the request was successful
         if (res.status === 200) {

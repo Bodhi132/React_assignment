@@ -9,6 +9,8 @@ import Upload from "./Page/Subpages/Upload";
 import Setting from "./Page/Subpages/Setting";
 import Schedule from "./Page/Subpages/Schedule";
 
+axios.defaults.baseURL = 'https://react-asssingment-backend.onrender.com/';
+
 export default function App() {
   return (
     <Routes>
