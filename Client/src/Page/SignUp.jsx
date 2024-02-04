@@ -40,7 +40,6 @@ const handleRegister = async () => {
     } else {
         setPasswordError(false);
     }
-//https://react-assignment-red.vercel.app/
     try {
         let res = await axios.post('https://react-assignment-red.vercel.app/auth/register', { email, password });
         // Check if the request was successful
