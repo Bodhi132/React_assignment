@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://react-assignment-frontend-m7nzpu31e-bodhi132.vercel.app', // or '*' to allow all origins
+  origin: 'https://react-assignment-frontend.vercel.app', // or '*' to allow all origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
