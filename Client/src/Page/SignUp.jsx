@@ -41,6 +41,7 @@ const handleRegister = async () => {
         setPasswordError(false);
     }
     try {
+        console.log('hey3');
         let res = await axios.post('https://react-assignment-red.vercel.app/auth/register', { email, password });
         // Check if the request was successful
         if (res.status === 200) {
@@ -77,6 +78,7 @@ const handleLogin = async () => {
 
     try {
         let res = await axios.post('https://react-assignment-red.vercel.app/auth/login', { email, password });
+        console.log('hey1');
         // Check if the request was successful
         if (res.status === 200) {
             return new Promise((resolve) => {

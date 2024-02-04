@@ -13,12 +13,12 @@ const app = express();
 app.use(express.json());
 app.set('trust proxy', 1);
 app.use(cors({
-  credentials: true,
-  origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'http://localhost:3000','https://react-assignment-red.vercel.app','https://react-assignment-backend-a0pr39zgc-bodhi132.vercel.app'],
-  methods: "GET,POST,PUT,DELETE",
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
+
 
 app.disable('etag');
 
