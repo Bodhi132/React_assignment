@@ -12,13 +12,6 @@ exports.register = async (req, res) => {
     await user.save();
     const token = jwt.sign({ _id: user._id }, secret);
 
-    res.cookie('authMethod', 'jwt', { 
-      secure: true, 
-      sameSite: 'none', 
-      httpOnly: true, 
-      maxAge: 31536000 
-    });
-
     res.json({ token, message: 'User registered successfully' });
   } catch (error) {
     console.error(error);
@@ -42,13 +35,6 @@ exports.login = async (req, res) => {
   }
 
   const token = jwt.sign({ _id: user._id }, secret);
-
-  res.cookie('authMethod', 'jwt', { 
-    secure: true, 
-    sameSite: 'none', 
-    httpOnly: true, 
-    maxAge: 31536000 
-  });
 
   res.json({ token });
 };
