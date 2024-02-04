@@ -15,7 +15,9 @@ app.set('trust proxy', 1);
 app.use(cors({
   credentials: true,
   origin: ['http://localhost:5173', 'https://react-assignment-frontend.vercel.app', 'http://localhost:3000','https://react-assignment-red.vercel.app','https://react-assignment-backend-a0pr39zgc-bodhi132.vercel.app'],
-  methods: "GET,POST,PUT,DELETE"
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 const uri = "mongodb+srv://bodhi:W7Jy92luuZQgGvNN@cluster0.xanjw9x.mongodb.net/?retryWrites=true&w=majority"
