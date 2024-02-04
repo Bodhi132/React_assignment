@@ -40,8 +40,17 @@ exports.login = async (req, res) => {
   res.json({ token });
 };
 
-exports.logout = (req, res) => {
+exports.jwtLogout = (req, res) => {
   
   res.json({ token: null, message: 'User logged out successfully' });
   
+};
+
+exports.googleLogout = (req, res) => {
+  req.session.destroy((err) => {
+    if(err) {
+      return res.status(500).json({ message: 'Error logging out' });
+    }
+    res.json({ message: 'User logged out successfully' });
+  });
 };

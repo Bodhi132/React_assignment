@@ -6,7 +6,7 @@ import twitter from '../assets/socials/twitter.png'
 
 const SocialLinks = () => {
   return (
-    <div className='flex justify-between sm:w-[250px] w-[166px]'>
+    <div className='flex justify-between md:w-[250px] sm:w-[166px] w-[140px]'>
         <img src={github} className=' h-7 w-7'/>
         <img src={twitter} className=' h-7 w-7'/>
         <img src={linkedin} className=' h-7 w-7'/>

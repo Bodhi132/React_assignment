@@ -15,6 +15,10 @@ router.get('/google/callback',
     successRedirect: 'https://react-assignment-frontend.vercel.app/home'
 }));
 
+router.post('/logout/jwt', authController.jwtLogout);
+router.post('/logout/google', authController.googleLogout);
+
+
 // app.get("/login/sucess",async(req,res)=>{
 
 //     if(req.user){

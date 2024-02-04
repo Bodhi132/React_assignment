@@ -3,8 +3,6 @@ const mongoose = require('mongoose')
 const authRoutes = require('./routes/authRoutes');
 const cors = require('cors')
 const session = require('express-session');
-// const MongoStore = require('connect-mongo');
-// const session = require('cookie-session')
 const passport = require('passport');
 const OAuth2Strategy = require("passport-google-oauth20").Strategy
 const userdb = require("./models/user")
@@ -24,14 +22,8 @@ const uri = "mongodb+srv://bodhi:W7Jy92luuZQgGvNN@cluster0.xanjw9x.mongodb.net/?
 const clientid = '612556527469-pic78u7se0rbmg3h32ms00dg5bmcuimn.apps.googleusercontent.com'
 const clientsecret = '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'
 
-// app.use(session({
-//   name: 'session',
-//   keys: ['2349&$#adfhaqdef238huefu'],
-//   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-// }));
-
 app.use(session({
-  secret: '2349&$#adfhaqdef238huefu', // replace with your own secret key
+  secret: '2349&$#adfhaqdef238huefu', 
   resave: false,
   saveUninitialized: true,
   store: MongoStore.create({ mongoUrl: uri })
