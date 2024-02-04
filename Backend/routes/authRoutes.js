@@ -13,7 +13,17 @@ router.get('/google/callback',
   passport.authenticate('google', { 
     failureRedirect: 'https://react-assignment-frontend.vercel.app' ,
     successRedirect: 'https://react-assignment-frontend.vercel.app/home'
-}));
+  }),
+  (req, res) => {
+    res.cookie('authMethod', 'google', { 
+      secure: true, 
+      sameSite: 'none', 
+      httpOnly: true, 
+      maxAge: 31536000 
+    });
+    res.redirect('/home');
+  }
+);
 
 router.post('/logout/jwt', authController.jwtLogout);
 router.post('/logout/google', authController.googleLogout);

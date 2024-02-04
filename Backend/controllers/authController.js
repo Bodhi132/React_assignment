@@ -12,12 +12,18 @@ exports.register = async (req, res) => {
     await user.save();
     const token = jwt.sign({ _id: user._id }, secret);
 
+    res.cookie('authMethod', 'jwt', { 
+      secure: true, 
+      sameSite: 'none', 
+      httpOnly: true, 
+      maxAge: 31536000 
+    });
+
     res.json({ token, message: 'User registered successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error creating user' });
   }
-  
 };
 
 exports.login = async (req, res) => {
@@ -37,14 +43,16 @@ exports.login = async (req, res) => {
 
   const token = jwt.sign({ _id: user._id }, secret);
 
+  res.cookie('authMethod', 'jwt', { 
+    secure: true, 
+    sameSite: 'none', 
+    httpOnly: true, 
+    maxAge: 31536000 
+  });
+
   res.json({ token });
 };
 
-exports.jwtLogout = (req, res) => {
-  
-  res.json({ token: null, message: 'User logged out successfully' });
-  
-};
 
 exports.googleLogout = (req, res) => {
   req.session.destroy((err) => {
