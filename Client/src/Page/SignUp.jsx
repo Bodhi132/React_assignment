@@ -40,9 +40,9 @@ const handleRegister = async () => {
     } else {
         setPasswordError(false);
     }
-
+//https://react-assignment-red.vercel.app/
     try {
-        let res = await axios.post('https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app/auth/register', { email, password });
+        let res = await axios.post('https://react-assignment-red.vercel.app/auth/register', { email, password });
         // Check if the request was successful
         if (res.status === 200) {
             return new Promise((resolve) => {
@@ -77,7 +77,7 @@ const handleLogin = async () => {
     }
 
     try {
-        let res = await axios.post('https://react-assignment-backend-em0t1xo50-bodhi132.vercel.app/auth/login', { email, password });
+        let res = await axios.post('https://react-assignment-red.vercel.app/auth/login', { email, password });
         // Check if the request was successful
         if (res.status === 200) {
             return new Promise((resolve) => {
